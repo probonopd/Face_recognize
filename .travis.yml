@@ -7,9 +7,11 @@ install:
   - wget -c "https://raw.githubusercontent.com/probonopd/linuxdeployqt/feature/upstream-qt/qtdownload"
   - . qtdownload
   - QTSUBCOMPONENT=icu ; . qtdownload
-  - sudo add-apt-repository --yes ppa:xqms/opencv-nonfree
-  - sudo apt-get update 
-  - sudo apt-get -y install libopencv-nonfree-dev
+# - sudo add-apt-repository --yes ppa:xqms/opencv-nonfree
+# - sudo apt-get update 
+# - sudo apt-get -y install libopencv-nonfree-dev
+  - sudo apt-get -y install libopencv-dev
+  - find /usr/include - name photo.hpp
   
 script:
   - qmake CONFIG+=release PREFIX=/usr
