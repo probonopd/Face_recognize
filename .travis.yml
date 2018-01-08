@@ -15,9 +15,9 @@ install:
   - find /usr/lib -name "libopencv_core.so"
   - sudo mkdir -p /usr/local/lib/ ; sudo cp $(dirname $(find /usr/lib -name "libopencv_core.so"))/libopencv_* /usr/local/lib/
   - git clone https://github.com/seetaface/SeetaFaceEngine
-  - cd SeetaFaceEngine/FaceDetection ; cmake . ; cd -
-  - cd SeetaFaceEngine/FaceAlignment ; cmake . ; cd -
-  - cd SeetaFaceEngine/FaceIdentification ; cmake . ; cd -
+  - cd SeetaFaceEngine/FaceDetection ; cmake . ; make -j$(nproc) ; sudo make install ; cd -
+  - cd SeetaFaceEngine/FaceAlignment ; cmake . ; make -j$(nproc) ; sudo make install ; cd -
+  - cd SeetaFaceEngine/FaceIdentification ; cmake . ; make -j$(nproc) ; sudo make install ; cd -
   
 script:
   - qmake CONFIG+=release PREFIX=/usr
