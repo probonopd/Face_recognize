@@ -12,6 +12,8 @@ install:
 # - sudo apt-get -y install libopencv-nonfree-dev
   - sudo apt-get -y install libopencv-dev
   - find /usr/include -name "photo.hpp" # /usr/include/opencv2/photo/photo.hpp
+  - find /usr/lib -name "libopencv_core.so"
+  - mkdir -p /usr/local/lib/ ; cp $(dirname $(find /usr/lib -name "libopencv_core.so"))/libopencv_* /usr/local/lib/
   
 script:
   - qmake CONFIG+=release PREFIX=/usr
