@@ -7,7 +7,9 @@ install:
   - wget -c "https://raw.githubusercontent.com/probonopd/linuxdeployqt/feature/upstream-qt/qtdownload"
   - . qtdownload
   - QTSUBCOMPONENT=icu ; . qtdownload
-  - sudo apt-get -y install libcv-dev
+  - sudo add-apt-repository --yes ppa:xqms/opencv-nonfree
+  - sudo apt-get update 
+  - sudo apt-get -y install libopencv-nonfree-dev
   
 script:
   - qmake CONFIG+=release PREFIX=/usr
